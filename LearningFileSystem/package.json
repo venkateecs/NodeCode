@@ -1,0 +1,29 @@
+{
+  "name": "LearningFileSystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "dev": "",
+    "start": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "atob": "^2.0.3",
+    "config": "^1.30.0",
+    "dotenv": "^5.0.1",
+    "files-and-folders-server": "0.0.9",
+    "formidable": "^1.2.1",
+    "hapi": "^17.2.3",
+    "hapi-auto-routes": "^1.1.0",
+    "inert": "^5.1.0",
+    "knex": "^0.14.4",
+    "mysql": "^2.15.0",
+    "nodemailer": "^4.6.3",
+    "objection": "^1.1.0",
+    "open": "0.0.5",
+    "sendmail": "^1.4.1"
+  }
+}

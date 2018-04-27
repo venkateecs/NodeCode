@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+
+</head>
+
+<body>
+    <h1>Welcome to Chat</h1>
+    <div class="container">
+        <ul id="messages">
+        </ul>
+    </div>
+    <div class="row" id="userdetails">
+        <div class="col-sm-6">
+            <input class="form-control" id="username">
+        </div>
+        <div class="col-sm-6">
+            <button id="btnUserDetails" class="btn btn-primary">Enter your user name</button>
+        </div>
+        <div class="col-sm-6 " id="showAlert">
+            <span class="alert alert-danger"> User Already exists</span>
+        </div>
+    </div>
+    <div class="row" id="chatSection">
+        <div class="col-sm-6">
+            <input class="form-control"  id="txtChat">
+        </div>
+        <div class="col-sm-6">
+            <button id="btnSend" class="btn btn-primary">SendChat</button>
+        </div>
+    </div>
+    <script>
+        var socket = io('http://localhost:5000');
+        $(document).ready(function() {
+            $("#chatSection").hide();
+            $("#showAlert").hide();
+            $("#btnUserDetails").click(function() {
+                socket.emit("USER-LOGGEDIN", $("#username").val());
+                $("#userdetails").hide();
+                $("#chatSection").show();
+            });
+
+            $('#btnSend').bind('click', function() {
+                var chatData = $("#txtChat").val();
+                socket.emit("USER-CHAT", chatData);
+                $("txtChat").val("");
+            });
+        });
+        socket.on("USER-ALREADY-EXISTS",function(data){
+                $("#showAlert").show();
+               $("#userdetails").show();
+                $("#chatSection").hide();
+                setTimeout(function(){
+                    $("#showAlert").hide();
+                },5000)
+        });
+        
+        
+        socket.on("ADD-TO-CHAT", function(data) {
+            $("#messages").append("<li><a href='#'>" + data.username + ":" + data.message+ "</li>")
+        });
+
+    </script>
+
+</body>
+
+</html>

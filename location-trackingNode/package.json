@@ -1,0 +1,32 @@
+{
+  "name": "lorebase-api",
+  "version": "1.0.0",
+  "description": "API Services for Lorebase",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "boom": "^7.1.1",
+    "config": "^1.29.0",
+    "hapi": "^17.2.0",
+    "hapi-auth-jwt2": "github:salzhrani/hapi-auth-jwt2#v-17",
+    "hapi-auto-routes": "^1.1.0",
+    "joi": "^13.1.0",
+    "jsonwebtoken": "^8.1.0",
+    "knex": "^0.14.2",
+    "lodash": "^4.17.4",
+    "mysql": "^2.15.0",
+    "objection": "^1.0.0",
+    "pino": "^4.10.3"
+  }
+}

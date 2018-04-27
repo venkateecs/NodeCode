@@ -1,0 +1,19 @@
+{
+  "name": "LearnHapi_Mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.2.1",
+    "hapi-auto-routes": "^1.1.0",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.7",
+    "path": "^0.12.7"
+  }
+}
