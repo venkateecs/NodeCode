@@ -69,4 +69,56 @@ const updateUsers = {
     }
   }
 }
-  module.exports=[getUsers , getTodos, getUsertodos,getUsersTestcount,saveUsers,updateUsers];
+const saveCountries = {
+   method:'POST',
+   path:'/saveCountry',
+   config: {
+     handler:async(req)=>{
+      return userCtrl.saveCountry(req.payload)
+      .then((res)=> {
+        return res ;
+      })
+     }
+   }
+}
+const saveStates = {
+  method:'POST',
+  path:'/saveStates',
+  handler:(async(req)=> {
+    return userCtrl.saveStates(req.payload)
+    .then((res)=> {
+      return res ;
+    })
+  })
+}
+const getCountries = {
+  method:'GET',
+  path:'/countries',
+  handler:(async(req)=> {
+     return userCtrl.getCountriesStates()
+     .then((res)=> {
+       return res;
+     })
+  })
+}
+const saveCities = {
+ method:'POST',
+ path:'/saveCities',
+ handler:( async(req)=> {
+    return userCtrl.saveCities(req.payload)
+    .then((res)=> {
+      return res ;
+    })
+ }) 
+}
+const getStates = {
+ method:'GET',
+ path:'/getCities',
+ handler:(async(req)=> {
+  return userCtrl.getCities()
+  .then((res)=> {
+   return res ;
+  })
+ }) 
+}
+  module.exports=[getUsers , getTodos, getUsertodos,getUsersTestcount,saveUsers,updateUsers,saveCountries,saveStates,getCountries,saveCities,getStates];

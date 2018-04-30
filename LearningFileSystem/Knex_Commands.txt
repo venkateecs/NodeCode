@@ -1,0 +1,11 @@
+npm install -g knex
+
+knex migrate:make create_users_and_todos_tables
+
+knex seed:make 01_users
+
+knex migrate:rollback
+
+knex migrate:latest
+
+knex seed:run
