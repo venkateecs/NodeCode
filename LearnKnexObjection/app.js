@@ -17,11 +17,11 @@ const server = Hapi.Server({
   port:5000,
   host:'localhost'
 })
-routes.bind(server).register({
-  pattern: path.join(__dirname, '/routes/*.js'),
-})
 const init = async()=>{
   await server.start();
+  routes.bind(server).register({
+    pattern: path.join(__dirname, '/routes/*.js'),
+  })
   console.log(`server is running under ${server.info.uri}`);
 }
 init();
