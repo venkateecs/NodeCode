@@ -1,0 +1,109 @@
+
+{
+  "swagger":"2.0",
+  "title": "Invoice Builder API Documentation",
+  "description": "Swagger API Documentation for Invoice Builder MEAN Stack App",
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+  },
+  "version": "1.0.0",
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Invocies",
+      "description": "API for Inovice"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["GetData"],
+        "summary": "Find all Details from the server",
+        "description": "All details",
+        "parameters":[
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#definitions/details"
+            }
+          }
+        }
+      }
+    },
+    "/countries": {
+      "get": {
+        "tags": ["GetCountries"],
+        "summary": "Find all Countries from the server",
+        "description": "All Countries Details",
+        "parameters":[
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#definitions/details"
+            }
+          }
+        }
+      }
+    },
+    "/countries/{name}": {
+      "get": {
+        "tags": ["GetCountry Name"],
+        "summary": "Find Country from the server",
+        "description": "get Country Name",
+        "parameters":[
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Name of the Country",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#definitions/details"
+            }
+          }
+        }
+      }
+    },
+    "/addCountries": {
+      "post": {
+        "tags": ["ADDCountry"],
+        "summary": "Add Country from the server",
+        "description": "Add Country Name",
+        "parameters": [
+          {
+            "name": "countryname",
+            "description": "Invoice that we want to udpate",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#definitions/UpdateInvoice"
+            }
+          }
+        ],        
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#definitions/details"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+  }
+}
